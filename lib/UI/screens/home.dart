@@ -61,7 +61,7 @@ Widget LoginPage(BuildContext context) {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(32, 32, 32, 8),
+        padding: const EdgeInsets.fromLTRB(32, 64, 32, 8),
         child: TextField(
           controller: _usernameCon,
           decoration: InputDecoration(
@@ -102,11 +102,16 @@ Widget LoginPage(BuildContext context) {
               context.read<LoginBloc>().add(Login(_usernameCon.text, int.tryParse(_ageCon.text) ?? 20));
             }
           },
-          child: SizedBox(
+          child: Container(
             width: double.infinity,
-            child: Text(
-              'start playing',
-              style: TextStyle(color: frColor, fontSize: 30.0),
+            color: frColor,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'start playing',
+                style: TextStyle(color: mnColor, fontSize: 30.0),
+                textAlign: TextAlign.center,
+              ),
             ),
           ))
     ],
