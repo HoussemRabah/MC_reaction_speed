@@ -56,6 +56,8 @@ Widget LoginPage(BuildContext context) {
         child: SvgPicture.asset(
           'assets/logo.svg',
           color: frColor,
+          width: MediaQuery.of(context).size.width * 0.5,
+          fit: BoxFit.scaleDown,
         ),
       ),
       Padding(
@@ -93,6 +95,7 @@ Widget LoginPage(BuildContext context) {
               hintStyle: TextStyle(color: frColor)),
         ),
       ),
+      const Expanded(child: SizedBox()),
       TextButton(
           onPressed: () {
             if (_usernameCon.text.isNotEmpty && _ageCon.text.isNotEmpty && ((int.tryParse(_ageCon.text) != null))) {
@@ -104,7 +107,6 @@ Widget LoginPage(BuildContext context) {
             child: Text(
               'start playing',
               style: TextStyle(color: frColor, fontSize: 30.0),
-              textAlign: TextAlign.end,
             ),
           ))
     ],
