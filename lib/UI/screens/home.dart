@@ -61,13 +61,11 @@ Widget LoginPage(BuildContext context) {
       Padding(
         padding: const EdgeInsets.fromLTRB(32, 32, 32, 8),
         child: TextField(
-          style: TextStyle(color: frColor),
-          cursorColor: frColor,
           controller: _usernameCon,
           decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  width: 1.5,
+                  width: 1.0,
                   color: frColor,
                 ),
                 borderRadius: BorderRadius.circular(30.0),
@@ -97,13 +95,17 @@ Widget LoginPage(BuildContext context) {
       ),
       TextButton(
           onPressed: () {
-            if (_usernameCon.text.isNotEmpty && _ageCon.text.isNotEmpty) {
+            if (_usernameCon.text.isNotEmpty && _ageCon.text.isNotEmpty && ((int.tryParse(_ageCon.text) != null))) {
               context.read<LoginBloc>().add(Login(_usernameCon.text, int.tryParse(_ageCon.text) ?? 20));
             }
           },
-          child: Text(
-            'start playing',
-            style: TextStyle(color: frColor, fontSize: 20.0),
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(
+              'start playing',
+              style: TextStyle(color: frColor, fontSize: 30.0),
+              textAlign: TextAlign.end,
+            ),
           ))
     ],
   );

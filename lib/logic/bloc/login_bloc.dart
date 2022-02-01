@@ -16,7 +16,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (event is LoginCheck) {
         try {
           final SharedPreferences prefs = await SharedPreferences.getInstance();
-
+          prefs.remove('username');
+          prefs.remove('age');
+          prefs.remove('scores');
           username = (prefs.getString('username') ?? '');
           age = (prefs.getInt('age') ?? 0);
         } catch (e) {
