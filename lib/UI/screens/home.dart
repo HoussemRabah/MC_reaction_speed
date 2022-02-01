@@ -96,15 +96,15 @@ Widget LoginPage(BuildContext context) {
         ),
       ),
       const Expanded(child: SizedBox()),
-      TextButton(
-          onPressed: () {
-            if (_usernameCon.text.isNotEmpty && _ageCon.text.isNotEmpty && ((int.tryParse(_ageCon.text) != null))) {
-              context.read<LoginBloc>().add(Login(_usernameCon.text, int.tryParse(_ageCon.text) ?? 20));
-            }
-          },
-          child: Container(
-            width: double.infinity,
-            color: frColor,
+      Container(
+        width: double.infinity,
+        color: frColor,
+        child: TextButton(
+            onPressed: () {
+              if (_usernameCon.text.isNotEmpty && _ageCon.text.isNotEmpty && ((int.tryParse(_ageCon.text) != null))) {
+                context.read<LoginBloc>().add(Login(_usernameCon.text, int.tryParse(_ageCon.text) ?? 20));
+              }
+            },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -112,8 +112,8 @@ Widget LoginPage(BuildContext context) {
                 style: TextStyle(color: mnColor, fontSize: 30.0),
                 textAlign: TextAlign.center,
               ),
-            ),
-          ))
+            )),
+      )
     ],
   );
 }
