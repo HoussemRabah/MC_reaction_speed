@@ -34,7 +34,9 @@ class _menuScreenState extends State<menuScreen> {
         appBar: AppBarComp(context),
         body: SmartRefresher(
           controller: _refreshController,
-          onRefresh: () => setState(() {}),
+          onRefresh: () => setState(() {
+            _refreshController.loadComplete();
+          }),
           child: SingleChildScrollView(
             child: Column(
               children: [
