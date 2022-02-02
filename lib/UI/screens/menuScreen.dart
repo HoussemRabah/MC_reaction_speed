@@ -35,7 +35,7 @@ class _menuScreenState extends State<menuScreen> {
             children: [
               const BigtitleComp(title: 'play mode'),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   TextButton(
