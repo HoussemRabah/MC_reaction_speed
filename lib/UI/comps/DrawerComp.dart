@@ -20,22 +20,29 @@ class DrawerComp extends StatelessWidget {
                 return Container(
                   color: Colors.white,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(
-                        'assets/logo.svg',
-                        color: frColor,
-                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Hey, ${snapshot.data!['username'].toString()}',
-                          style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                        child: SvgPicture.asset(
+                          'assets/logo.svg',
+                          color: frColor,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Remember, you are only ${snapshot.data!['age'].toString()} years old'),
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Hey, ${snapshot.data!['username'].toString()}',
+                            style: const TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Remember, you are only ${snapshot.data!['age'].toString()} years old'),
+                        ),
                       ),
                     ],
                   ),

@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:mc_reaction_speed/logic/repo/stockage.dart';
+import '/logic/repo/stockage.dart';
 import 'package:meta/meta.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
