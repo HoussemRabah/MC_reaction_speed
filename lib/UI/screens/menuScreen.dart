@@ -32,10 +32,10 @@ class _menuScreenState extends State<menuScreen> {
         backgroundColor: mnColor,
         drawer: const DrawerComp(),
         appBar: AppBarComp(context),
-        body: SingleChildScrollView(
-          child: SmartRefresher(
-            controller: _refreshController,
-            onRefresh: () => setState(() {}),
+        body: SmartRefresher(
+          controller: _refreshController,
+          onRefresh: () => setState(() {}),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 const BigtitleComp(title: 'play mode'),
