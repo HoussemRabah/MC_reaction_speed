@@ -50,7 +50,7 @@ Widget LoginPage(BuildContext context) {
   return Column(
     children: [
       Container(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(8.0, 32.0, 8.0, 8.0),
         width: double.infinity,
         color: Colors.white,
         child: SvgPicture.asset(

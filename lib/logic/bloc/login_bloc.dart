@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:mc_reaction_speed/logic/repo/stockage.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,6 +9,7 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   String? username;
   int? age;
+  Stockage stockage = Stockage();
 
   init() async {}
 
@@ -15,15 +17,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginEvent>((event, emit) async {
       if (event is LoginCheck) {
         try {
-          final SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.remove('username');
-          prefs.remove('age');
-          prefs.remove('scores');
-          username = (prefs.getString('username') ?? '');
-          age = (prefs.getInt('age') ?? 0);
-        } catch (e) {
-          print('error');
-        }
+          dynamic info = await stockage.getInfo();
+          username = info['username'];
+          age = info['age'];
+        } catch (e) {}
         if (username == '') {
           emit(LoginIsWaiting());
         } else {
@@ -33,9 +30,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       if (event is Login) {
         emit(LoginIsNew((event).username, (event).age));
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setString('username', (event).username);
-        prefs.setInt('age', (event).age);
+        await stockage.setInfo(event.username, event.age);
         emit(LoginIsDone((event).username, (event).age));
       }
     });

@@ -1,6 +1,12 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Stockage {
+  Future<void> setInfo(String username, int age) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('username', username);
+    prefs.setInt('age', age);
+  }
+
   Future<Map> getInfo() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
