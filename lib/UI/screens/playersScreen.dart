@@ -73,17 +73,10 @@ class _PlayersScreenState extends State<PlayersScreen> {
                               _errors.removeAt(i);
                               setState(() {});
                             },
-                            child: Icon(Icons.delete, color: Colors.redAccent),
+                            child: const Icon(Icons.delete, color: Colors.redAccent),
                           ),
                           errorText: _errors[i],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 1.5,
-                              color: frColor,
-                            ),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          hintText: "player ${i + 2} name",
+                          hintText: "player ${i + 2}'s name",
                         ),
                       ),
                     ],
