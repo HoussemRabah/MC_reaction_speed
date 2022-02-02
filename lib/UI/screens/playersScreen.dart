@@ -62,7 +62,6 @@ class _PlayersScreenState extends State<PlayersScreen> {
                   child: Column(
                     children: [
                       TextField(
-                        keyboardType: TextInputType.number,
                         style: TextStyle(color: frColor),
                         cursorColor: frColor,
                         controller: _con[i],
