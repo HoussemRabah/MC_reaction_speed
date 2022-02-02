@@ -89,7 +89,7 @@ class _menuScreenState extends State<menuScreen> {
                       if (snapshot.data!.isNotEmpty) {
                         return ResultListComp(list: (snapshot.data as List));
                       } else {
-                        return const Center(child: Text('nothing to show yet'));
+                        return const Center(child: Text('nothing to show yet, swip down to refresh'));
                       }
                     }
                     return LoadingComp();
