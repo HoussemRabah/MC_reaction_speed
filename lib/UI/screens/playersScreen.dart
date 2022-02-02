@@ -50,12 +50,12 @@ class _PlayersScreenState extends State<PlayersScreen> {
               }).then((value) => setState(() {}));
             }
           },
-          child: Icon(Icons.play_arrow),
+          child: const Icon(Icons.play_arrow),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              BigtitleComp(title: 'names of your friends'),
+              const BigtitleComp(title: 'names of your friends'),
               for (int i = 0; i < _con.length; i++)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(32, 0, 32, 16),
@@ -67,6 +67,14 @@ class _PlayersScreenState extends State<PlayersScreen> {
                         cursorColor: frColor,
                         controller: _con[i],
                         decoration: InputDecoration(
+                          suffix: TextButton(
+                            onPressed: () {
+                              _con.removeAt(i);
+                              _errors.removeAt(i);
+                              setState(() {});
+                            },
+                            child: Icon(Icons.delete, color: Colors.redAccent),
+                          ),
                           errorText: _errors[i],
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -78,14 +86,6 @@ class _PlayersScreenState extends State<PlayersScreen> {
                           hintText: "player ${i + 2} name",
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          _con.removeAt(i);
-                          _errors.removeAt(i);
-                          setState(() {});
-                        },
-                        child: Icon(Icons.delete, color: Colors.redAccent),
-                      )
                     ],
                   ),
                 ),
