@@ -67,7 +67,7 @@ class _PlayersScreenState extends State<PlayersScreen> {
                         cursorColor: frColor,
                         controller: _con[i],
                         decoration: InputDecoration(
-                          suffix: TextButton(
+                          suffixIcon: TextButton(
                             onPressed: () {
                               _con.removeAt(i);
                               _errors.removeAt(i);
