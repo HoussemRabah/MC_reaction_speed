@@ -49,7 +49,7 @@ class _menuScreenState extends State<menuScreen> {
                       children: const [
                         Icon(
                           Icons.face,
-                          size: 64.0,
+                          size: 124.0,
                         ),
                         Text('alone'),
                       ],
@@ -63,7 +63,7 @@ class _menuScreenState extends State<menuScreen> {
                       },
                       child: Column(
                         children: const [
-                          Icon(Icons.group, size: 64.0),
+                          Icon(Icons.group, size: 124.0),
                           Text('friends'),
                         ],
                       )),
