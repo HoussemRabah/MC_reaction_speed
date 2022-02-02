@@ -88,7 +88,7 @@ class _PlayersScreenState extends State<PlayersScreen> {
                     _errors.add(null);
                     setState(() {});
                   },
-                  child: Icon(Icons.add)),
+                  child: const Icon(Icons.add)),
             ],
           ),
         ),

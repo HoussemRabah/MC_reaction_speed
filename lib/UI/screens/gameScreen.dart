@@ -115,7 +115,7 @@ class _GameScreenState extends State<GameScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         (state is SqaureStopState)
-                            ? ((state.score > 0) ? 'booooom!' : 'too soon.. loser')
+                            ? ((state.score > 0) ? 'booooom!' : 'too soon... loser')
                             : (state is SqaureResultState)
                                 ? 'results'
                                 : (state is SqaureBeginState)
@@ -123,7 +123,7 @@ class _GameScreenState extends State<GameScreen> {
                                     : (state is SqaureRedState)
                                         ? 'Nooooow'
                                         : "${state.playername}'s turn",
-                        style: const TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
                       ),
                     ),
                     (state is SqaureResultState) ? ResultListComp(list: state.scores) : SizedBox(),
@@ -138,7 +138,7 @@ class _GameScreenState extends State<GameScreen> {
                                     ? Colors.blue
                                     : (state is SqaureBeginState)
                                         ? Colors.grey
-                                        : Colors.grey.shade50,
+                                        : Colors.grey.shade200,
                           ),
                     (state is SqaureResultState)
                         ? SizedBox()
@@ -147,12 +147,12 @@ class _GameScreenState extends State<GameScreen> {
                             initialData: 0,
                             builder: (context, snap) {
                               final value = snap.data;
-                              final displayTime = StopWatchTimer.getDisplayTime(value ?? 0, hours: false);
+                              final displayTime = StopWatchTimer.getDisplayTime(value ?? 0, secondRightBreak: ':', hours: false);
                               return Padding(
                                 padding: const EdgeInsets.all(8),
                                 child: Text(
                                   displayTime,
-                                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                                 ),
                               );
                             },
