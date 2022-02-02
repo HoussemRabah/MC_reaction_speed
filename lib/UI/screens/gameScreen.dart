@@ -132,13 +132,15 @@ class _GameScreenState extends State<GameScreen> {
                         : Container(
                             width: MediaQuery.of(context).size.width * 0.7,
                             height: MediaQuery.of(context).size.width * 0.7,
-                            color: (state is SqaureRedState)
-                                ? Colors.red
-                                : (state is SqaureStopState)
-                                    ? Colors.blue
-                                    : (state is SqaureBeginState)
-                                        ? Colors.grey
-                                        : Colors.grey.shade200,
+                            decoration: BoxDecoration(
+                                color: (state is SqaureRedState)
+                                    ? Colors.red
+                                    : (state is SqaureStopState)
+                                        ? Colors.blue
+                                        : (state is SqaureBeginState)
+                                            ? Colors.grey
+                                            : Colors.grey.shade200,
+                                borderRadius: BorderRadius.all(Radius.circular(30))),
                           ),
                     (state is SqaureResultState)
                         ? SizedBox()
