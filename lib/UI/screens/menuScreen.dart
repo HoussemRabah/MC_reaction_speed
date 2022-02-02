@@ -57,9 +57,9 @@ class _menuScreenState extends State<menuScreen> {
                   ),
                   TextButton(
                       onPressed: () async {
-                        await Navigator.of(context).pushReplacementNamed('friends', arguments: {
+                        await Navigator.of(context).pushNamed('friends', arguments: {
                           'username': widget.username
-                        });
+                        }).then((value) => setState(() {}));
                       },
                       child: Column(
                         children: const [
